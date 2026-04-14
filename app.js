@@ -1,10 +1,11 @@
 let express=require('express')
 let cors=require('cors')
-const userRouter = require('./routes/userRouter')
-
 let app=express()
+app.use(express.urlencoded({extended:true}))
+
 app.use(cors())
 
+const userRouter = require('./routes/userRouter')
 app.use('/api/users',userRouter)
 
 
